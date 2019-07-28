@@ -38,6 +38,7 @@ namespace ArrayList_Homework
             MArL.RemoveAt(3);
 
             Console.WriteLine("---------------");
+            Console.WriteLine("removing at index 3:");
             MArL.Get(0);
             MArL.Get(1);
             MArL.Get(2);
@@ -54,6 +55,7 @@ namespace ArrayList_Homework
             MArL.Insert(3, "Toby");
 
             Console.WriteLine("---------------");
+            Console.WriteLine("inserting George and Toby at index 2 and 3: ");
             MArL.Get(0);
             MArL.Get(1);
             MArL.Get(2);

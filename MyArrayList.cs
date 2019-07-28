@@ -40,7 +40,7 @@ namespace ArrayList_Homework
         }
 
         public int Count()
-        {
+        { 
             return _objectCount;
         }
 
@@ -66,17 +66,13 @@ namespace ArrayList_Homework
             {
                 ExpandArray();
             }
-            object[] tmp = new object[_array.Length];
-            for(int i = 0;i < index;i++)
+
+            for(int i = _objectCount;i > index;i--)
             {
-                tmp[i] = _array[i];
+                _array[i] = _array[i - 1];
             }
-            tmp[index] = obj;
-            for(int i = index;i < _objectCount;i++)
-            {
-                tmp[i + 1] = _array[i];
-            }
-            _array = tmp;
+            _array[index] = obj;
+
             _objectCount++;
         }
 
@@ -86,25 +82,19 @@ namespace ArrayList_Homework
             {
                 _array[i] = null;
             }
+            _objectCount = 0;
         }
 
         public void RemoveAt(int index)
         {
             if(index < _objectCount)
             {
-                _array[index] = null;
-
-                object[] tmp = new object[_array.Length];
-
-                for(int i = 0;i < index;i++)
-                {
-                    tmp[i] = _array[i];
-                }
                 for(int i = index;i < _objectCount - 1;i++)
                 {
-                    tmp[i] = _array[i + 1];
+                    _array[i] = _array[i + 1];
                 }
-                _array = tmp;
+                _array[_objectCount - 1] = null;
+
                 _objectCount--;
             }
             else
